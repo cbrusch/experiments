@@ -5,15 +5,16 @@
 	</head>
 	<body>
 		<a-scene>
+		<!-- LOADING AN .OBJ MODEL https://aframe.io/docs/0.5.0/components/obj-model.html -->
 			<a-assets>
-<!-- 				<img id="skyTexture"
-					src="assets/img/35420563481_15c21c43e3_o.jpg"> -->
-				<a-asset-item id="testObject"
-					src="https://cdn.aframe.io/test-models/models/virtualcity/VC.gltf">
+				<img id="skyTexture"
+					src="assets/img/35420563481_15c21c43e3_o.jpg">
+				<a-asset-item id="bear-obj" src="/assets/objects/bear/bear.obj"></a-asset-item>
+				<a-asset-item id="bear-mtl" src="/assets/objects/bear/bear.mtl"></a-asset-item>
 			</a-assets>
 
-<!-- 			<a-sky src="#skyTexture"></a-sky> -->
-			<a-gltf-model src="#testObject"></a-gltf-model>
+			<a-sky src="#skyTexture"></a-sky>
+			<a-entity obj-model="obj: #bear-obj; mtl: #bear-mtl"></a-entity>
 		</a-scene>
 	</body>
 </html>
