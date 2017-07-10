@@ -16,19 +16,50 @@
 				<a-asset-item id="bear-mtl" src="/assets/objects/bear/bear.mtl"></a-asset-item>
 			</a-assets>
 
-			<a-plane id="#layer1" src="#painting" width="50" height="20" rotation="0 0 0" position="0 10 -30"><!-- parent layer -->
+<!-- 			<a-plane id="#layer1" src="#painting" width="50" height="20" rotation="0 0 0" position="0 10 -30">
 				<a-plane id="#layer2" src="#mondo-nuovo" width="50" height="20" rotation="0 0 0" position="0 0 0" transparent="true" opacity="0.9"></a-plane>
 				<a-plane id="#layer3" src="#crowd-left" width="50" height="20" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
 				<a-plane id="#layer4" src="#women" width="50" height="20" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane>
 				<a-plane id="#layer5" src="#soldier" width="50" height="20" rotation="0 0 0" position="0 0 .3" transparent="true" opacity="0.9"></a-plane>
-			</a-plane>
+				<a-animation attribute="position" to="0 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation>
+				<a-animation attribute="position" to="3 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation>
+			</a-plane> -->
 <!-- ANIMATION FOR VERSION .5 https://aframe.io/docs/0.5.0/core/animations.html -->
 <!-- 			<a-entity obj-model="obj: #bear-obj; mtl: #bear-mtl" position="-3 -5 -20" rotation="10 30 0"></a-entity> -->
-<!-- 			<a-box color="#E75C75">
+<!-- 			<a-box position="-3 2 0" cursor-listener color="blue">
 				<a-animation attribute="position" to="0 3 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
 			</a-box> -->
 
-			<a-light type="point" intensity="1" position="0 0 0"></a-light>
+			<a-entity  id="box" cursor-listener geometry="primitive: box" material="color: blue" opacity="1" scale=" 3 3 3"></a-entity>
+			<a-light type="ambient" intensity="1" color:="pink" position="0 5 0"></a-light>
+
+<!-- CAMERA W/ CHILD CURSOR https://aframe.io/docs/0.5.0/components/cursor.html -->
+			<!-- fixed -->
+<!-- 			<a-entity camera>
+				<a-entity cursor="fuse: true; fuseTimout: 500"
+						  position="0 0 -1"
+						  geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03"
+						  material="color: black; shader: flat">
+				</a-entity>
+			</a-entity> -->
+
+			<!-- draggable -->
+			<a-camera>
+				<a-cursor></a-cursor>
+			</a-camera>
 		</a-scene>
 	</body>
+	<script>
+		AFRAME.registerComponent('cursor-listener', {
+			init: function() {
+				var COLORS = ['red', 'green', 'blue'];
+				this.el.addEventListener('click', function(evt) {
+					var randomIndex = Math.floor(Math.random() * COLORS.length);
+					this.setAttribute('material', 'color', COLORS[randomIndex]);
+					this.setAttribute('material', 'opacity', '.5');
+					console.log('I was clicked at: ', evt.detail.intersection.point);
+				});
+			}
+		});
+	</script>
 </html>
