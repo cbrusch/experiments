@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<link rel="stylesheet" href="css/app.css">
 		<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
 	</head>
 	<body>
 		<a-scene>
 			<a-assets>
-				<img id="skyTexture" src="assets/img/35420563481_15c21c43e3_o.jpg">
-				<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+				<img id="painting" src="assets/img/painting.png">
+				<img id="mondo-nuovo" src="assets/img/mondo-nuovo.png">
+				<img id="crowd-left" src="assets/img/crowd-left.png">
+				<img id="women" src="assets/img/women.png">
+				<img id="soldier" src="assets/img/soldier.png">
 				<a-asset-item id="bear-obj" src="/assets/objects/bear/bear.obj"></a-asset-item>
 				<a-asset-item id="bear-mtl" src="/assets/objects/bear/bear.mtl"></a-asset-item>
 			</a-assets>
-			<a-plane src="#groundTexture" width="30" height="30" rotation="-90 0 0" position="0 -3 0" color="fff"></a-plane>
 
-			<a-sky src="#skyTexture"></a-sky>
+			<a-plane id="#layer1" src="#painting" width="50" height="20" rotation="0 0 0" position="0 10 -30"><!-- parent layer -->
+				<a-plane id="#layer2" src="#mondo-nuovo" width="50" height="20" rotation="0 0 0" position="0 0 0" transparent="true" opacity="0.9"></a-plane>
+				<a-plane id="#layer3" src="#crowd-left" width="50" height="20" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
+				<a-plane id="#layer4" src="#women" width="50" height="20" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane>
+				<a-plane id="#layer5" src="#soldier" width="50" height="20" rotation="0 0 0" position="0 0 .3" transparent="true" opacity="0.9"></a-plane>
+			</a-plane>
 <!-- ANIMATION FOR VERSION .5 https://aframe.io/docs/0.5.0/core/animations.html -->
-			<a-entity obj-model="obj: #bear-obj; mtl: #bear-mtl" position="-3 -5 -20" rotation="10 30 0"></a-entity>
-			<a-box color="#E75C75">
+<!-- 			<a-entity obj-model="obj: #bear-obj; mtl: #bear-mtl" position="-3 -5 -20" rotation="10 30 0"></a-entity> -->
+<!-- 			<a-box color="#E75C75">
 				<a-animation attribute="position" to="0 3 -5" direction="alternate" dur="2000" repeat="indefinite"></a-animation>
-			</a-box>
+			</a-box> -->
 
-			<a-light type="point" intensity="5" color="#E75C75" position="0 0 0"></a-light>
+			<a-light type="point" intensity="1" position="0 0 0"></a-light>
 		</a-scene>
 	</body>
 </html>
