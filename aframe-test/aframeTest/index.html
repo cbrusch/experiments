@@ -19,28 +19,23 @@
 			</a-assets>
 
 <!-- BASIC EVENT INTERACTIONS https://github.com/mayognaise/aframe-mouse-cursor-component -->
-			<a-entity id="#layer1"
+<!-- 			<a-entity id="#layer1"
 					geometry="primitive: plane; width: 75; height: 30" 
 					material="color: green; src: #painting" 
 					rotation="0 0 0" 
 					position="0 10 -30"
-					event-set__up="_event: mouseup; _target: #layer5; scale: 2 2 2">
+					event-set__up="_event: mouseup; _target: #layer5; scale: 2 2 2"> -->
+					<a-box id="redBox" class="clickable" color="red" position="0 4 -10"></a-box>
+							<a-plane id="#layer2" color="blue" width="75" height="30" rotation="0 0 0" position="0 10 -29" transparent="true" opacity="0.9"></a-plane>
+			<a-plane id="#layer1" src="#painting" color="green" width="75" height="30" rotation="0 0 0" position="0 10 -30">
 
-<!-- 				<a-plane id="#layer2" src="#mondo-nuovo" width="75" height="30" rotation="0 0 0" position="0 0 0" transparent="true" opacity="0.9"></a-plane> -->
-<!-- 				<a-plane id="#layer3" src="#crowd-left" width="75" height="30" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
-				<a-plane id="#layer4" src="#women" width="75" height="30" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane> -->
-<!-- 				<a-plane id="#layer5" src="#soldier" width="75" height="30" rotation="0 0 0" position="0 0 .3" transparent="true"></a-plane> -->
-				<a-entity id="#layer5"
-						geometry="primitive: plane; width: 75; height: 30"
-						material="src: #soldier"
-						rotation="0 0 0"
-						position="0 0 .3"
-						transparent="true">
-				</a-entity>
+				<a-plane id="#layer3" src="#crowd-left" width="75" height="30" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
+				<a-plane id="#layer4" src="#women" width="75" height="30" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane>
+				<a-plane id="#layer5" src="#soldier" width="75" height="30" rotation="0 0 0" position="0 0 .3" transparent="true"></a-plane>
 <!-- 				<a-animation attribute="material.opacity" begin="fade" to="0" dur="5000"></a-animation> -->
 <!-- 				<a-animation attribute="position" to="3 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation> -->
-			<!-- </a-plane> -->
-			</a-entity>
+			</a-plane>
+			<!-- </a-entity> -->
 <!-- ANIMATION FOR VERSION .5 https://aframe.io/docs/0.5.0/core/animations.html -->
 <!-- 			<a-entity obj-model="obj: #bear-obj; mtl: #bear-mtl" position="-3 -5 -20" rotation="10 30 0"></a-entity> -->
 <!-- 			<a-box position="-3 2 0" cursor-listener color="blue">
@@ -48,19 +43,8 @@
 			</a-box> -->
 
 			<!-- <a-entity  id="box" cursor-listener geometry="primitive: box" material="color: blue" opacity="1" scale=" 3 3 3"></a-entity> -->
-			<a-light type="ambient" intensity="1" color="pink" position="0 5 0"></a-light>
+			<a-light type="ambient" intensity="1" color="pink"></a-light>
 
-<!-- CAMERA W/ CHILD CURSOR https://aframe.io/docs/0.5.0/components/cursor.html -->
-			<!-- fixed / unclickable canvas? -->
-<!-- 			<a-entity camera>
-				<a-entity cursor="fuse: true; fuseTimout: 500"
-						  position="0 0 -1"
-						  geometry="primitive:ring; radiusInner: 0.02; radiusOuter: 0.03"
-						  material="color: black; shader: flat">
-				</a-entity>
-			</a-entity> -->
-
-			<!-- draggable / clickable canvas? -->
 			<a-camera>
 				<a-cursor></a-cursor>
 			</a-camera>
@@ -71,20 +55,28 @@
 		// 	console.log('I should now fade');
 		// });
 
+		var sceneElement = document.querySelector('a-scene');
+		console.log("hello");
+		var testElement = sceneElement.querySelector('#layer1');
+		console.log(sceneElement.querySelector('#layer2'));
 
-		AFRAME.registerComponent('cursor-listener', {
-			// function() {
-			// 	document.querySelector('#layer1').emit('fade');
-			// 	console.log("I'm faaaaading");	
-			// }
-			// init: function() {
-			// 	var COLORS = ['red', 'green', 'blue'];
-			// 	this.el.addEventListener('click', function(evt) {
-			// 		var randomIndex = Math.floor(Math.random() * COLORS.length);
-			// 		this.setAttribute('material', 'color', COLORS[randomIndex]);
-			// 		console.log('I was clicked at: ', evt.detail.intersection.point);
-			// 	});
-			// }
-		});
+
+
+
+
+		// AFRAME.registerComponent('cursor-listener', {
+		// 	function() {
+		// 		document.querySelector('#layer1').emit('fade');
+		// 		console.log("I'm faaaaading");	
+		// 	}
+		// 	init: function() {
+		// 		var COLORS = ['red', 'green', 'blue'];
+		// 		this.el.addEventListener('click', function(evt) {
+		// 			var randomIndex = Math.floor(Math.random() * COLORS.length);
+		// 			this.setAttribute('material', 'color', COLORS[randomIndex]);
+		// 			console.log('I was clicked at: ', evt.detail.intersection.point);
+		// 		});
+		// 	}
+		// });
 	</script>
 </html>
