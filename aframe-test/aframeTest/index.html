@@ -25,7 +25,10 @@
 					rotation="0 0 0" 
 					position="0 10 -30"
 					event-set__up="_event: mouseup; _target: #layer5; scale: 2 2 2"> -->
-					<a-box id="redBox" class="clickable" src="#painting" width="50" height="20" color="red" position="0 10 -80"></a-box>
+					<a-box id="#paintingLayer" class="clickable" src="#painting" width="50" height="20" color="yellow" position="0 10 -30">
+						<a-box id="#soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+
+					</a-box>
 
 
 <!-- 							<a-plane id="#layer2" color="blue" width="75" height="30" rotation="0 0 0" position="0 10 -29" transparent="true" opacity="0.9"></a-plane> -->
@@ -59,9 +62,8 @@
 
 		var sceneElement = document.querySelector('a-scene');
 		console.log("hello");
-		var testElement = sceneElement.querySelector('#redBox');
+		var testElement = sceneElement.querySelector('#paintingLayer');
 		console.log(testElement);
-		testElement.setAttribute('scale', '4 4 4');
 		testElement.setAttribute('color', 'blue');
 
 
