@@ -2,7 +2,9 @@
 <html lang="en">
 	<head>
 		<link rel="stylesheet" href="css/app.css">
-		<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+<!-- 		<script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script> -->
+		<script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    	<script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
 	</head>
 	<body>
 		<a-scene>
@@ -15,15 +17,21 @@
 				<a-asset-item id="bear-obj" src="/assets/objects/bear/bear.obj"></a-asset-item>
 				<a-asset-item id="bear-mtl" src="/assets/objects/bear/bear.mtl"></a-asset-item>
 			</a-assets>
+			
+<!-- BASIC EVENT INTERACTIONS https://github.com/mayognaise/aframe-mouse-cursor-component -->
+			<a-entity id="#layer1"
+					geometry="primitive: plane; width: 75; height: 30" 
+					material="color: green; src: #painting" 
+					rotation="0 0 0" 
+					position="0 10 -30"
+					event-set__up="_event: mouseup; material.opacity: .1">
 
-			<!-- <a-plane id="#layer1" cursor-listener src="#painting" width="50" height="20" rotation="0 0 0" position="0 10 -30"> -->
-			<a-entity cursor-listener geometry="primitive: plane; width: 50; height: 20" material="color: green; src: #painting" rotation="0 0 0" position="0 10 -30">
-<!-- 				<a-plane id="#layer2" src="#mondo-nuovo" width="50" height="20" rotation="0 0 0" position="0 0 0" transparent="true" opacity="0.9"></a-plane> -->
-				<a-plane id="#layer3" src="#crowd-left" width="50" height="20" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
-				<a-plane id="#layer4" src="#women" width="50" height="20" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane>
-				<a-plane id="#layer5" src="#soldier" width="50" height="20" rotation="0 0 0" position="0 0 .3" transparent="true" opacity="0.9"></a-plane>
-<!-- 				<a-animation attribute="position" to="0 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation>
-				<a-animation attribute="position" to="3 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation> -->
+<!-- 				<a-plane id="#layer2" src="#mondo-nuovo" width="75" height="30" rotation="0 0 0" position="0 0 0" transparent="true" opacity="0.9"></a-plane> -->
+				<a-plane id="#layer3" src="#crowd-left" width="75" height="30" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
+				<a-plane id="#layer4" src="#women" width="75" height="30" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane>
+				<a-plane id="#layer5" src="#soldier" width="75" height="30" rotation="0 0 0" position="0 0 .3" transparent="true" opacity="0.9"></a-plane>
+				<a-animation attribute="material.opacity" begin="fade" to="0" dur="5000"></a-animation>
+<!-- 				<a-animation attribute="position" to="3 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation> -->
 			<!-- </a-plane> -->
 			</a-entity>
 <!-- ANIMATION FOR VERSION .5 https://aframe.io/docs/0.5.0/core/animations.html -->
@@ -33,10 +41,10 @@
 			</a-box> -->
 
 			<!-- <a-entity  id="box" cursor-listener geometry="primitive: box" material="color: blue" opacity="1" scale=" 3 3 3"></a-entity> -->
-			<a-light type="ambient" intensity="1" color:="pink" position="0 5 0"></a-light>
+			<a-light type="ambient" intensity="1" color="pink" position="0 5 0"></a-light>
 
 <!-- CAMERA W/ CHILD CURSOR https://aframe.io/docs/0.5.0/components/cursor.html -->
-			<!-- fixed -->
+			<!-- fixed / unclickable canvas? -->
 <!-- 			<a-entity camera>
 				<a-entity cursor="fuse: true; fuseTimout: 500"
 						  position="0 0 -1"
@@ -45,22 +53,31 @@
 				</a-entity>
 			</a-entity> -->
 
-			<!-- draggable -->
+			<!-- draggable / clickable canvas? -->
 			<a-camera>
 				<a-cursor></a-cursor>
 			</a-camera>
 		</a-scene>
 	</body>
 	<script>
+		// document.querySelector('#layer1').addEventListener('click', function(fading) {
+		// 	console.log('I should now fade');
+		// });
+
+
 		AFRAME.registerComponent('cursor-listener', {
-			init: function() {
-				var COLORS = ['red', 'green', 'blue'];
-				this.el.addEventListener('click', function(evt) {
-					var randomIndex = Math.floor(Math.random() * COLORS.length);
-					this.setAttribute('material', 'color', COLORS[randomIndex]);
-					console.log('I was clicked at: ', evt.detail.intersection.point);
-				});
-			}
+			// function() {
+			// 	document.querySelector('#layer1').emit('fade');
+			// 	console.log("I'm faaaaading");	
+			// }
+			// init: function() {
+			// 	var COLORS = ['red', 'green', 'blue'];
+			// 	this.el.addEventListener('click', function(evt) {
+			// 		var randomIndex = Math.floor(Math.random() * COLORS.length);
+			// 		this.setAttribute('material', 'color', COLORS[randomIndex]);
+			// 		console.log('I was clicked at: ', evt.detail.intersection.point);
+			// 	});
+			// }
 		});
 	</script>
 </html>
