@@ -25,16 +25,18 @@
 					rotation="0 0 0" 
 					position="0 10 -30"
 					event-set__up="_event: mouseup; _target: #layer5; scale: 2 2 2"> -->
-					<a-box id="redBox" class="clickable" color="red" position="0 4 -10"></a-box>
-							<a-plane id="#layer2" color="blue" width="75" height="30" rotation="0 0 0" position="0 10 -29" transparent="true" opacity="0.9"></a-plane>
-			<a-plane id="#layer1" src="#painting" color="green" width="75" height="30" rotation="0 0 0" position="0 10 -30">
+					<a-box id="redBox" class="clickable" src="#painting" width="50" height="20" color="red" position="0 10 -80"></a-box>
+
+
+<!-- 							<a-plane id="#layer2" color="blue" width="75" height="30" rotation="0 0 0" position="0 10 -29" transparent="true" opacity="0.9"></a-plane> -->
+<!-- 			<a-plane id="#layer1" src="#painting" color="green" width="75" height="30" rotation="0 0 0" position="0 10 -30">
 
 				<a-plane id="#layer3" src="#crowd-left" width="75" height="30" rotation="0 0 0" position="0 0 0" transparent="true" opacity="1"></a-plane>
 				<a-plane id="#layer4" src="#women" width="75" height="30" rotation="0 0 0" position="0 0 .2" transparent="true" opacity="1"></a-plane>
 				<a-plane id="#layer5" src="#soldier" width="75" height="30" rotation="0 0 0" position="0 0 .3" transparent="true"></a-plane>
-<!-- 				<a-animation attribute="material.opacity" begin="fade" to="0" dur="5000"></a-animation> -->
-<!-- 				<a-animation attribute="position" to="3 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation> -->
-			</a-plane>
+ 				<a-animation attribute="material.opacity" begin="fade" to="0" dur="5000"></a-animation>
+				<a-animation attribute="position" to="3 3 -5" direction="alternate" dur="2000" repeat="1"></a-animation>
+			</a-plane> -->
 			<!-- </a-entity> -->
 <!-- ANIMATION FOR VERSION .5 https://aframe.io/docs/0.5.0/core/animations.html -->
 <!-- 			<a-entity obj-model="obj: #bear-obj; mtl: #bear-mtl" position="-3 -5 -20" rotation="10 30 0"></a-entity> -->
@@ -57,8 +59,11 @@
 
 		var sceneElement = document.querySelector('a-scene');
 		console.log("hello");
-		var testElement = sceneElement.querySelector('#layer1');
-		console.log(sceneElement.querySelector('#layer2'));
+		var testElement = sceneElement.querySelector('#redBox');
+		console.log(testElement);
+		testElement.setAttribute('scale', '4 4 4');
+		testElement.setAttribute('color', 'blue');
+
 
 
 
