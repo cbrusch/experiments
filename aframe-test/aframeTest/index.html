@@ -25,10 +25,13 @@
 					rotation="0 0 0" 
 					position="0 10 -30"
 					event-set__up="_event: mouseup; _target: #layer5; scale: 2 2 2"> -->
-					<a-box id="#paintingLayer" class="clickable" src="#painting" width="50" height="20" color="yellow" position="0 10 -30">
-						<a-box id="#soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
-
-					</a-box>
+			<a-box id="paintingLayer" click-listener class="clickable" src="#painting" width="50" height="20" color="yellow" position="0 10 -30">
+				<a-box id="#soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+			</a-box>
+			<a-box id="hiddenPainting" click-listener class="clickable" src="#painting" width="50" height="20" color="pink" position="0 10 -30" visible="false">
+				<a-box id="hiddenSoldier" class="clickable" src="#soldier" width="50" height="20" color="green" position="0 0 .1" transparent="true"></a-box>
+			</a-box>
+<!-- 			<a-box id="soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 10 -29" transparent="true"></a-box> -->
 
 
 <!-- 							<a-plane id="#layer2" color="blue" width="75" height="30" rotation="0 0 0" position="0 10 -29" transparent="true" opacity="0.9"></a-plane> -->
@@ -64,8 +67,26 @@
 		console.log("hello");
 		var testElement = sceneElement.querySelector('#paintingLayer');
 		console.log(testElement);
-		testElement.setAttribute('color', 'blue');
+		// testElement.setAttribute('color', 'blue');
 
+//I CAN'T SEEM TO SELECT ELEMENTS THAT ARE NESTED, BUT I CAN SELECT ELEMENTS THAT ARE ONE LEVEL DOWN FROM THE SCENE
+//SO I ESSENTIALLY CREATE CHANGE BY STACKING MULTIPLE SIMILAR ELEMENTS AT THE SAME LEVEL AND MAKING THEM HIDDEN/VISIBLE
+		AFRAME.registerComponent('click-listener', {
+			init: function() {
+				console.log("start init");
+				var sceeene = document.querySelector('a-scene');
+				// console.log(sceeene);
+				// var testSceeene = sceeene.querySelector('#paintingLayer');
+				// var soldierTest = testSceeene.querySelector('#soldierLayer');
+				var visEl = sceeene.querySelector('#hiddenPainting');
+				this.el.addEventListener('click', function() {
+					visEl.setAttribute('visible', 'true');
+					// testSceeene.querySelector('#soldierLayer').setAttribute('color', 'green');
+					console.log("end this");
+				});
+				console.log("end init");
+			}
+		});
 
 
 
