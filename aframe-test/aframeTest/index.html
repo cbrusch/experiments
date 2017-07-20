@@ -14,23 +14,45 @@
 				<img id="crowd-left" src="assets/img/crowd-left.png">
 				<img id="women" src="assets/img/women.png">
 				<img id="soldier" src="assets/img/soldier.png">
-				<a-asset-item id="bear-obj" src="/assets/objects/bear/bear.obj"></a-asset-item>
-				<a-asset-item id="bear-mtl" src="/assets/objects/bear/bear.mtl"></a-asset-item>
+				<img id="barker" src="assets/img/barker.png">
+				<img id="boy" src="assets/img/boy.png">
+				<img id="discover" src="assets/img/select-figure-text.png">
+				<img id="importantPeople" src="assets/img/important-people.png">
+				<img id="questionableRelationships" src="assets/img/questionable-relationships.png">
+				<img id="startSlideshow" src="assets/img/start-slideshow.png">
+				<img id="mnSlideshow" src="assets/img/mn.png">
 			</a-assets>
+			<!-- DISCOVER STORIES -->
+			<a-box id="discoverLayer" click-discover class="clickable" src="#discover" width="50" height="20" position="0 10 -30" visible="true"></a-box>
+			<!-- HIGHLIGHT PEOPLE -->
+			<a-box id="highlightPeopleLayer" click-people-highlight class="clickable" src="#painting" width="50" height="20" position="0 10 -30" visible="false">
+				<a-box id="soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+				<a-box id="crowdLeftLayer" class="clickable" src="#crowd-left" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+			</a-box>
+			<!-- IMPORTANT PEOPLE -->
+			<a-box id="importantPeopleLayer" click-important-people class="clickable" src="#importantPeople" width="50" height="20" position="0 10 -30" visible="false"></a-box>
+			<!-- HIGHLIGHT RELATIONSHIPS -->
+			<a-box id="highlightRelationshipsLayer" click-relationships-highlight class="clickable" src="#painting" width="50" height="20" position="0 10 -30" visible="false">
+				<a-box id="boyLayer" class="clickable" src="#boy" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+				<a-box id="barkerLayer" class="clickable" src="#barker" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+			</a-box>
+			<!-- QUESTIONABLE RELATIONSHIPS -->
+			<a-box id="questionableRelationshipsLayer" click-questionable-relationships class="clickable" src="#questionableRelationships" width="50" height="20" position="0 10 -30" visible="false"></a-box>
+			<!-- START SLIDESHOW -->
+			<a-box id="startSlideshowLayer" click-start-slideshow class="clickable" src="#startSlideshow" width="50" height="20" position="0 10 -30" visible="false"></a-box>
+			<!-- SLIDESHOW -->
+			<a-box id="mnLayer" class="clickable" src="#mnSlideshow" width="30" height="40" position="0 10 0"  scale="3 3 3" transparent="true" visible="true">
+				<a-animation attribute="position" to="0 15 -30" delay="15000" dur="5000" repeat="0"></a-animation>
+			</a-box>
+			<!-- PLAIN PAINTING -->
+			<a-box id="plainPaintingLayer" class="clickable" src="#painting" width="50" height="20" position="0 10 -30" visible="false"></a-box>
 
-<!-- BASIC EVENT INTERACTIONS https://github.com/mayognaise/aframe-mouse-cursor-component -->
-<!-- 			<a-entity id="#layer1"
-					geometry="primitive: plane; width: 75; height: 30" 
-					material="color: green; src: #painting" 
-					rotation="0 0 0" 
-					position="0 10 -30"
-					event-set__up="_event: mouseup; _target: #layer5; scale: 2 2 2"> -->
-			<a-box id="paintingLayer" click-listener class="clickable" src="#painting" width="50" height="20" color="yellow" position="0 10 -30">
-				<a-box id="#soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
-			</a-box>
-			<a-box id="hiddenPainting" click-listener class="clickable" src="#painting" width="50" height="20" color="pink" position="0 10 -30" visible="false">
+<!-- 			<a-box id="paintingLayer" click-listener class="clickable" src="#painting" width="50" height="20" color="yellow" position="0 10 -30" visible="false">
+				<a-box id="soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 0 .1" transparent="true"></a-box>
+			</a-box> -->
+<!-- 			<a-box id="hiddenPainting" click-listener class="clickable" src="#painting" width="50" height="20" color="pink" position="0 10 -30" visible="false">
 				<a-box id="hiddenSoldier" class="clickable" src="#soldier" width="50" height="20" color="green" position="0 0 .1" transparent="true"></a-box>
-			</a-box>
+			</a-box> -->
 <!-- 			<a-box id="soldierLayer" class="clickable" src="#soldier" width="50" height="20" color="purple" position="0 10 -29" transparent="true"></a-box> -->
 
 
@@ -51,7 +73,7 @@
 			</a-box> -->
 
 			<!-- <a-entity  id="box" cursor-listener geometry="primitive: box" material="color: blue" opacity="1" scale=" 3 3 3"></a-entity> -->
-			<a-light type="ambient" intensity="1" color="pink"></a-light>
+			<a-light type="ambient" intensity="1"></a-light>
 
 			<a-camera>
 				<a-cursor></a-cursor>
@@ -59,32 +81,85 @@
 		</a-scene>
 	</body>
 	<script>
-		// document.querySelector('#layer1').addEventListener('click', function(fading) {
-		// 	console.log('I should now fade');
-		// });
-
-		var sceneElement = document.querySelector('a-scene');
-		console.log("hello");
-		var testElement = sceneElement.querySelector('#paintingLayer');
-		console.log(testElement);
-		// testElement.setAttribute('color', 'blue');
-
-//I CAN'T SEEM TO SELECT ELEMENTS THAT ARE NESTED, BUT I CAN SELECT ELEMENTS THAT ARE ONE LEVEL DOWN FROM THE SCENE
-//SO I ESSENTIALLY CREATE CHANGE BY STACKING MULTIPLE SIMILAR ELEMENTS AT THE SAME LEVEL AND MAKING THEM HIDDEN/VISIBLE
-		AFRAME.registerComponent('click-listener', {
+	//discover to people highlights
+		AFRAME.registerComponent('click-discover', {
 			init: function() {
-				console.log("start init");
+				console.log("start animation");
 				var sceeene = document.querySelector('a-scene');
-				// console.log(sceeene);
-				// var testSceeene = sceeene.querySelector('#paintingLayer');
-				// var soldierTest = testSceeene.querySelector('#soldierLayer');
-				var visEl = sceeene.querySelector('#hiddenPainting');
+				var visEl = sceeene.querySelector('#highlightPeopleLayer');
 				this.el.addEventListener('click', function() {
 					visEl.setAttribute('visible', 'true');
-					// testSceeene.querySelector('#soldierLayer').setAttribute('color', 'green');
-					console.log("end this");
+					this.setAttribute('visible', 'false');
+					console.log("end discover");
 				});
-				console.log("end init");
+				console.log("show people highlights");
+			}
+		});
+		AFRAME.registerComponent('click-people-highlight', {
+			init: function() {
+				console.log("animation step 2");
+				var sceeene = document.querySelector('a-scene');
+				var visEl = sceeene.querySelector('#importantPeopleLayer');
+				this.el.addEventListener('click', function() {
+					visEl.setAttribute('visible', 'true');
+					this.setAttribute('visible', 'false');
+					console.log("end people highlights");
+				});
+				console.log("show important people text");
+			}
+		});
+		AFRAME.registerComponent('click-important-people', {
+			init: function() {
+				console.log("animation step 2");
+				var sceeene = document.querySelector('a-scene');
+				var visEl = sceeene.querySelector('#highlightRelationshipsLayer');
+				this.el.addEventListener('click', function() {
+					visEl.setAttribute('visible', 'true');
+					this.setAttribute('visible', 'false');
+					console.log("end people highlights");
+				});
+				console.log("show relationships highlight");
+			}
+		});
+		AFRAME.registerComponent('click-relationships-highlight', {
+			init: function() {
+				console.log("animation step 2");
+				var sceeene = document.querySelector('a-scene');
+				var visEl = sceeene.querySelector('#questionableRelationshipsLayer');
+				this.el.addEventListener('click', function() {
+					visEl.setAttribute('visible', 'true');
+					this.setAttribute('visible', 'false');
+					console.log("end relationship highlights");
+				});
+				console.log("show questionable relationships text");
+			}
+		});
+		AFRAME.registerComponent('click-questionable-relationships', {
+			init: function() {
+				console.log("animation step 2");
+				var sceeene = document.querySelector('a-scene');
+				var visEl = sceeene.querySelector('#startSlideshowLayer');
+				this.el.addEventListener('click', function() {
+					visEl.setAttribute('visible', 'true');
+					this.setAttribute('visible', 'false');
+					console.log("end questionable relationships");
+				});
+				console.log("show start slideshow text");
+			}
+		});
+		AFRAME.registerComponent('click-start-slideshow', {
+			init: function() {
+				console.log("animation step 2");
+				var sceeene = document.querySelector('a-scene');
+				var visEl = sceeene.querySelector('#mnLayer');
+				var visEl2 = sceeene.querySelector('#plainPaintingLayer')
+				this.el.addEventListener('click', function() {
+					visEl.setAttribute('visible', 'true');
+					visEl2.setAttribute('visible', 'true');
+					this.setAttribute('visible', 'false');
+					console.log("end slideshow text");
+				});
+				console.log("mondo nuovo zoom");
 			}
 		});
 
