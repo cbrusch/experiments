@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+<!-- 		<link rel="stylesheet" href="css/app.css"> -->
+	</head>
+	<body>
+		<div id="container">
+			<div class="story" style="height: 800px"><h2>Story 1</h2><p> ... </p></div>
+			<div class="story" style="height: 800px"><h2>Story 2</h2><p> ... </p></div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/scrollstory/jquery.scrollstory.js"></script>
+
+		<script>
+			// instantiation
+			$(function() {
+				$("#container").scrollStory( {
+					containerscroll: function() {
+						console.log("I am scrolling");
+					}
+				})
+			});
+		</script>
+	</body>
+</html>
