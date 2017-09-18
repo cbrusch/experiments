@@ -3,3 +3,7 @@ body {
 	height: 100vh;
 	width: 100vw;
 }
+
+#openseadragon-wrapper {
+	height: 100vh;
+}
