@@ -22,7 +22,6 @@ Step 6)
 Step 7)
 	Create a new project. The image tiles files and .dzi file will need to be included in the project folder
 
-Note: For some reason, I can’t get the image to show unless I add a height to the container inline
-
 Additional Resources:
+https://openseadragon.github.io/docs/
 http://blogs.library.duke.edu/bitstreams/2015/11/20/zoomable-hi-res-images-hopping-aboard-the-openseadragon-bandwagon/
