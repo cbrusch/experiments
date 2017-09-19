@@ -16,8 +16,12 @@
 				sequenceMode: true, /* group an array of images */
 				showReferenceStrip: true, /* thumbnails */
 				showNavigator: true, /* mini map */
-				toolbar: "openseadragon-wrapper"
+				toolbar: "openseadragon-wrapper",
+				nextButton: "next",
 			});
+			viewer.addHandler("page", function() {
+				document.getElementById("next").setAttribute("border", "10px solid black");
+			})
 		</script>
 	</body>
 </html>

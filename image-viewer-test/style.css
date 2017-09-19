@@ -8,3 +8,26 @@ body {
 #openseadragon-wrapper {
 	height: 100vh;
 }
+
+.referencestrip {
+	background-color: pink !important;
+	cursor: pointer !important;
+	left: auto !important;
+	right: auto !important;
+}
+
+#openseadragon-wrapper > div > div { /* controls, mini map, thumbnails, nav arrows */
+	border: 5px solid pink !important;
+	left: 0px !important;
+}
+
+#openseadragon-wrapper > div > div > div {
+	border: 5px solid purple !important;
+}
+
+#openseadragon-wrapper > div > div > div > div {
+	border: 5px solid green !important;
+}
+#openseadragon-wrapper > div > div > div > div > div {
+	border: 5px solid blue !important;
+}
