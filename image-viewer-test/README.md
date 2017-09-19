@@ -25,3 +25,9 @@ Step 7)
 Additional Resources:
 https://openseadragon.github.io/docs/
 http://blogs.library.duke.edu/bitstreams/2015/11/20/zoomable-hi-res-images-hopping-aboard-the-openseadragon-bandwagon/
+
+Sequence Mode for navigating through image sets
+https://openseadragon.github.io/examples/tilesource-sequence/
+
+Reference Strip for horizontal thumbnails
+https://openseadragon.github.io/examples/ui-reference-strip/

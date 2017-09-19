@@ -12,7 +12,11 @@
 			var viewer = OpenSeadragon({
 				id: "openseadragon-wrapper",
 				prefixUrl: "img/",
-				tileSources: "/img/VI.dzi"
+				tileSources: ["/img/MagickSlicer-master/VI_a.dzi", "/img/MagickSlicer-master/VI_b.dzi", "/img/MagickSlicer-master/VI_c.dzi", "/img/MagickSlicer-master/VI_d.dzi"],
+				sequenceMode: true, /* group an array of images */
+				showReferenceStrip: true, /* thumbnails */
+				showNavigator: true, /* mini map */
+				toolbar: "openseadragon-wrapper"
 			});
 		</script>
 	</body>
