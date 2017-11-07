@@ -1,8 +1,9 @@
-htmlbody {
-	height: 90vh;
+html body {
+	height: 100vh;
 	width: 100vw;
 	margin: 0;
 	padding: 0;
+	border: 1px solid green;
 }
 
 #openseadragon-wrapper {
@@ -11,14 +12,3 @@ htmlbody {
 	height: 100vh;
 	width: 50% !important;
 }
-.openseadragon-container > div {
-/*	height: calc(100vh - 50px) !important;*/
-}
-#tools {
-	background-color: pink;
-	height: 50px !important;
-}
-
-/*#next {
-	border: 5px solid green !important;
-}*/
