@@ -30,10 +30,10 @@
 		(function() { // prepare and display zoomable scans of book pages
 			var pageTiles = "/data/pageView.json"; // file path to page view dzi files
 			var bookTiles = "/data/bookView.json"; // file path to book view dzi files
-			var pageView = $.getJSON("/data/pageView.json", function() { // get pageView.json file
+			var pageView = $.getJSON(pageTiles, function() { // get pageView.json file
 				pageView = pageView.responseJSON; // get array of page view URLS
 			})
-			var bookView = $.getJSON("/data/bookView.json", function() { // get bookView.json file
+			var bookView = $.getJSON(bookTiles, function() { // get bookView.json file
 				bookView = bookView.responseJSON; // get array of book view URLS
 			})
 			.done(function() { // after all the image tiles are ready, display zoomable pages
