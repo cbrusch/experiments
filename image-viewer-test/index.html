@@ -20,34 +20,47 @@
 				</div>
 			</div>
 		</div>
+		<script src="/jquery.1.12.5.min.js"></script>
 		<script src="openseadragon/openseadragon.min.js"></script>
 		<script type="text/javascript">
-			var viewer = OpenSeadragon({
+
+		var viewer = OpenSeadragon({
 				id: "openseadragon-wrapper",
 				// prefixUrl: "https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/",
+				// tileSources: [
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00001_inside-front.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00002_inside-front.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00003_frontispiece.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00004_epigramma-authoris.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00005_preface.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00006_preface.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00007_preface.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00008_praefatioad-lectorem.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00009_praefatioad-lectorem.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00010_praefatioad-lectorem.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00011_praefatioad-lectorem.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00012_praefatioad-lectorem.dzi",
+				// 	"https://github.com/Brown-University-Library/atalanta-media/blob/master/images/MagickSlicer/00013_maier.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00014_emblem-01.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00015_emblem-01.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00016_emblem-01.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00017_emblem-01.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00018_emblem-02.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_a.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_b.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_c.dzi",
+				// 	"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_d.dzi"],
 				tileSources: [
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00001_inside-front.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00002_inside-front.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00003_frontispiece.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00004_epigramma-authoris.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00005_preface.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00006_preface.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00007_preface.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00008_praefatioad-lectorem.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00009_praefatioad-lectorem.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00010_praefatioad-lectorem.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00011_praefatioad-lectorem.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00012_praefatioad-lectorem.dzi",
-					"https://github.com/Brown-University-Library/atalanta-media/blob/master/images/MagickSlicer/00013_maier.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00014_emblem-01.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00015_emblem-01.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00016_emblem-01.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00017_emblem-01.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/00018_emblem-02.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_a.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_b.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_c.dzi",
-					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/testing-dzi-directories/images/MagickSlicer-master/VI_d.dzi"],
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00001_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00002_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00004_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00006_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00008_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00010_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00012_book.dzi",
+					"https://raw.githubusercontent.com/Brown-University-Library/atalanta-media/master/images/MagickSlicer/book-view/00016_book.dzi"],
+				autoResize: false, /***/
+                showHomeControl: false, /***/
 				animationTime: 1.5, /* smoother zooming with easing */
 				sequenceMode: true, /* group an array of images */
 				showReferenceStrip: true, /* thumbnails */
@@ -61,9 +74,9 @@
 				previousButton: "previous",
 				nextButton: "next"
 			});
-			// viewer.addHandler("page", function() {
-			// 	document.getElementById("next").setAttribute("border", "10px solid black");
-			// })
+			
+			// var pageIndex = this.pageIndex - (this.mode === 'book' ? 2 : 1);
+			// 	if (this.mode === 'book')
 		</script>
 	</body>
 </html>
