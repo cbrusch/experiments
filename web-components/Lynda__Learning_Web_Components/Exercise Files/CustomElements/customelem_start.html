@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Custom Element Sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- include the polyfill for custom elements for browsers that don't support yet -->
+    <script src="../polyfills/webcomponents-lite.js"></script>
+
+    <script>
+        class MessageBanner extends HTMLElement { // extend basic HTML element behavior to the MessageBanner class
+            constructor() {
+                super(); // always call super() first
+
+                // TODO: add a click event to hide the message
+            }
+
+            /** TODO: observedAttributes is used to indicate which attributes 
+                will trigger the attributeChangedCallback function **/
+
+
+            /** Custom element lifecycle functions **/
+            connectedCallback() { // called when custom element added to the page
+                console.log("message-banner connected to page");
+                // TODO: set the initial state of the visible property
+            }
+
+            disconnectedCallback() { // called when custom element is removed from the page
+                console.log("message-banner disconnected from page");
+            }
+
+            adoptedCallback() { // called when custom element is imported from another document
+                console.log("message-banner adopted in page");                
+            }
+
+            attributeChangedCallback(name, oldValue, newValue) { // called when an attribute in the element is changed
+                console.log("message-banner attr: " + name + " changed from '"
+                            + oldValue + "' to '" + newValue + "'");
+            }
+
+            /** TODO: Expose the visible attribute as getter and setter **/     
+        }
+
+        // TODO: define the custom element for the browser
+        customElements.define("message-banner", MessageBanner); // define element (properties are the name of tag and name of class)
+        // Programmatically show and hide the banner by setting a property
+        window.addEventListener("load", e => {
+            document.getElementById("togglebtn").addEventListener("click", evt => {
+                var banner = document.getElementById("banner");
+                banner.visible = !banner.visible;
+            })
+        });
+    </script>
+    <!-- TODO: add some styling for the message banner -->
+    <style>
+        message-banner {
+            background: cornsilk;
+            border: 1pt solid gold;
+            margin: 0;
+            max-height: 400px;
+            padding: 18pt;
+            position: relative;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+        message-banner[visible] {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Defining Custom Elements</h1>
+    <div id="content">
+        <p>
+            Custom Elements let you add new tags to the browser that can be used  
+            just as if they were native to the browser. They can be instantiated
+            via JavaScript, have their own JavaScript API, and can extend the functionality of existing tags.
+        </p>
+        <p>This example shows how to create a simple message banner that hides itself
+            when clicked.</p>
+        <p>It is implemented as a custom <code>&lt;message-banner&gt;</code> element.</p>
+
+        <!-- new content will be placed into this div -->
+        <div id="example">
+            <!-- TODO: use our message banner element in the page -->
+            <message-banner id="banner" visible>
+                <div class="message">This is a message banner element. Click on me!</div>
+            </message-banner>
+
+            
+            <p>
+                Here is some other text content in the document.
+            </p>
+        </div>
+        <p>It can also be manipulated using JavaScript. Click the button to toggle the banner.</p>
+        <button id="togglebtn">Toggle Banner</button>
+    </div>
+</body>
+
+</html>

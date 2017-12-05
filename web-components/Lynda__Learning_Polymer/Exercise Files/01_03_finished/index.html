@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Polymer App</title>
+    <!-- Import our style definitions -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- Web Components polyfill and Polymer library includes -->
+    <script src="/bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <!-- import some web components to be used in the page -->
+    <link rel="import" href="/bower_components/google-map/google-map.html">
+    <link rel="import" href="/bower_components/paper-button/paper-button.html">
+
+    <!-- declare a style for a web component just like any other tag -->
+    <style>
+        google-map {
+            margin-top: 10pt;
+            margin-bottom: 10pt;
+            height: 500px;
+        }
+
+        paper-button {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>A Sample Polymer App</h1>
+    <div id="content">
+        <p>This example demonstrates how to use Polymer web components in a regular web page.</p>
+        <p>The Google map element is represented by a <code>google-map</code> custom tag.</p>
+        <p>The button controls are Material Design <code>paper-button</code> elements.</p>
+
+        <div id="example">
+            <paper-button raised id="sf">San Francisco</paper-button>
+            <paper-button raised id="nyc">New York</paper-button>
+            <paper-button raised id="sea">Seattle</paper-button>
+
+            <!-- google-map is part of the GoogleWebComponents collection -->
+            <google-map id="theMap" latitude="37.77493" longitude="-122.41942" zoom="12" 
+                    disable-default-ui="true" disable-street-view-control="true" 
+                    api-key="AIzaSyD0Mzdz3SkAIE-5gQXWmM8UusBEc0wZb_4">
+            </google-map>
+        </div>
+    </div>
+
+    <script>
+        function setMapLoc(lat, long) {
+            document.getElementById("theMap").latitude = lat;
+            document.getElementById("theMap").longitude = long;
+        }
+        window.addEventListener("load", evt => {
+            document.getElementById("sf").addEventListener("click", e => { setMapLoc(37.77493, -122.41942); })
+            document.getElementById("nyc").addEventListener("click", e => { setMapLoc(40.7128, -74.0059); })
+            document.getElementById("sea").addEventListener("click", e => { setMapLoc(47.6062, -122.3321); })
+        })
+    </script>
+</body>
+
+</html>

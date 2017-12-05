@@ -1,0 +1,7 @@
+{
+  "name": "TestApp",
+  "short_name": "TestApp",
+  "description": "Test the scaffolding feature of polymer",
+  "start_url": "/",
+  "display": "standalone"
+}

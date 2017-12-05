@@ -1,0 +1,1 @@
+This directory will be populated by the Polymer CLI when an app is scaffolded

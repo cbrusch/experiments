@@ -1,0 +1,81 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<!-- the dom-module tag is used to define a component in Polymer -->
+<dom-module id="message-banner">
+    <template>
+        <!-- define the appearance using CSS -->
+        <style>
+             :host {
+                background: var(--message-banner-background, cornsilk);
+                border: 1pt solid var(--message-banner-border, goldenrod);
+                margin: 0;
+                max-height: 400px;
+                padding: 15px;
+                position: relative;
+                top: 0;
+                right: 0;
+                display: none;
+            }
+
+             :host([visible]) {
+                display: block;
+            }
+
+             :host([type="critical"]) {
+                background: var(--message-banner-background, red);
+                border: 1pt solid var(--message-banner-border, maroon);
+                color: white;
+                font-weight: 600;
+            }
+
+             :host #closebox {
+                cursor: pointer;
+            }
+        </style>
+        <!-- the HTML structure is defined here -->
+        <div id='content' class="message">
+            <span id='closebox'>[X] </span>
+            <slot>This is a default message</slot>
+        </div>
+    </template>
+    <script>
+        class MessageBanner extends Polymer.Element {
+            constructor() {
+                super(); // always call super() first
+            }
+
+            // Polymer method that returns the name of the component
+            static get is() {
+                return "message-banner";
+            }
+
+            // Polymer method that defines the component's properties
+            static get properties() {
+                return {
+                    visible: {
+                        type: Boolean,
+                        value: false,
+                        reflectToAttribute: true,
+                        notify: true
+                    }
+                };
+            }
+
+            // Polymer function called before the element is attached to the page.
+            ready() {
+                super.ready(); // call the superclass
+
+                // add a click event to hide the message. Polymer
+                // automatically adds elements with IDs to the $
+                // collection for quick and easy access
+                var closebox = this.$.closebox;
+                closebox.addEventListener("click", e => {
+                    this.visible = false;
+                    console.log("message-banner closed");
+                });
+                console.log("message-banner element is ready!");
+            }
+        }
+        customElements.define(MessageBanner.is, MessageBanner);
+    </script>
+</dom-module>

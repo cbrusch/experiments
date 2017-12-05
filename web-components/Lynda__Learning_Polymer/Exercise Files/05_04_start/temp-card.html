@@ -1,0 +1,37 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id='temperature-card'>
+    <template>
+        <style>
+            div {
+                margin-bottom: 5pt;
+            }
+        </style>
+        <div>
+            Current temperature: [[temp]]F, which is [[tempCelsius]]C
+        </div>
+    </template>
+    <script>
+        class TemperatureCard extends Polymer.Element {
+            static get is() {
+                return "temperature-card";
+            }
+
+            static get properties() {
+                // TODO: add a computed property
+                return {
+                    temp: Number
+                }
+            }
+
+            constructor() {
+                super();
+                this.temp = 68;
+            }
+
+            // TODO: add a function to convert F to C
+
+        }
+        customElements.define(TemperatureCard.is, TemperatureCard);
+    </script>
+</dom-module>

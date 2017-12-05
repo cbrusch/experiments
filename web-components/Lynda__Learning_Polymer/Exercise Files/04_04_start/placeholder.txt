@@ -1,0 +1,1 @@
+This directory will be populated by the Polymer CLI when the starter kit app is scaffolded
