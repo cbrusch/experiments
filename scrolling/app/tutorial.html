@@ -6,23 +6,39 @@
 	<body style="height: 1000vh">
 		<!-- http://imakewebthings.com/waypoints/guides/getting-started/ -->
 		<div id="my-offset-debug" style="border: 1px solid red; height: 1px; width: 100vw; position: fixed; top: 100px;"></div>
-		<div id="basic-waypoint" style="height: 100px; width: 100px; margin-top: 300px; border: 5px solid purple; position: absolute; top: 300px;"></div>
+<!-- 		<div id="basic-waypoint" style="height: 100px; width: 100px; margin-top: 300px; border: 5px solid purple; position: relative; top: 300px;"></div> -->
+		<div class="basic-sticky-waypoint" style="height: 80vh; width: 100%; border: 5px solid orange; background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg); background-size: cover;"></div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="/js/waypoints/lib/noframework.waypoints.min.js"></script>
+		<script src="/js/waypoints/lib/jquery.waypoints.min.js"></script>
+		<script src="/js/waypoints/lib/shortcuts/sticky.min.js"></script>
 		<script src="/js/waypoints/lib/waypoints.debug.js"></script> <!-- remove in production -->
 
 		<script>
 			$(function() {
 				console.log("hello");
 
-				// instantiate the global Waypoint class and pass an options object to it. the two paramaters required are element and handler
-				var waypoint = new Waypoint({
-					element: document.getElementById('basic-waypoint'), // tells Waypoint which DOM element's position to observe on scroll
-					handler: function(direction) { // triggered when the top of the element hits the top of the viewport
-						console.log('Direction: ' + direction);
-					},
-					offset: 100, // moving the trigger location from 0 at the top of the viewport
+				// // instantiate the global Waypoint class and pass an options object to it. the two paramaters required are element and handler
+				// var waypoint = new Waypoint({
+				// 	element: document.getElementById('basic-waypoint'), // tells Waypoint which DOM element's position to observe on scroll
+				// 	handler: function(direction) { // triggered when the top of the element hits the top of the viewport
+				// 		console.log('Direction: ' + direction);
+				// 	},
+				// 	offset: 100, // moving the trigger location from 0 at the top of the viewport
+				// })
+				// var waypoint = new Waypoint({
+				// 	element: $('.basic-sticky-waypoint'),
+				// 	handler: function() {
+				// 		console.log("i'm not sure this needs to be a waypoint right now");
+				// 	}
+				// })
+
+				var sticky = new Waypoint.Sticky({
+					element: $('.basic-sticky-waypoint')[0],
+					handler: function() { // triggered when the top of the element hits the top of the viewport
+						console.log('am I sticking?');
+					}
 				})
 			});
 
