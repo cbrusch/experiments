@@ -4,44 +4,119 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<div id="aboveContainer">This is above the graphic</div>
-		<div class="storyWrapper">
-			<div id="container">
-				<div class="story"><h2>Story 1</h2><p> ... </p></div>
-				<div class="story"><h2>Story 2</h2><p> ... </p></div>
+	<!-- https://pudding.cool/process/how-to-implement-scrollytelling/demo/graphic.js -->
+
+		<div class="graphic">
+			<div class="graphic__prose">
+				<p class="trigger" data-step="0">Text 1</p>
+				<p class="trigger" data-step="1">Text 2</p>
+				<p class="trigger" data-step="2">Text 3</p>
 			</div>
+			<div class="graphic__vis"></div>
 		</div>
-		<div id="belowContainer">This is below the graphic</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="js/scrollstory/jquery.scrollstory.js"></script>
+		<script src="/js/waypoints/lib/noframework.waypoints.min.js"></script>
 
 		<script>
 			// instantiation
 			$(function() {
-				$("#container").scrollStory({
-					debug: true,
-					keyboard: true,
-					scrollLeft: 500,
-					triggerOffset: 100,
-					containerscroll: function() {
-						console.log("I am scrolling");
-						console.log($("#story0-0"));
+				console.log("hello");
 
-						if( $('#container').hasClass('scrollStoryActive') ) {
-						console.log("the container is active");
-						$('#container').addClass('is-fixed');
-						$('#belowContainer').addClass('is-also-fixed');
-						}
-						// if( $('#story0-1').hasClass('active') ) {
-						// 	console.log("section 2 is active");
-						// 	$('#story0-1').addClass('is-fixed');
-						// }
+				// code from graphic.js
+				window.createGraphic = function(graphicSelector) {
+					console.log("I am creating a graphic");
+					var graphicEl = document.querySelector('.graphic');
+					var graphicVisEl = graphicEl.querySelector('.graphic__vis');
+					var graphicProseEl = graphicEl.querySelector('.graphic__prose');
+
+					// actions to take on each step of our scroll-drive story
+				}
+
+				//helper function so we can map over dom selection
+				function selectionToArray(selection) {
+					console.log("I'm in the selectionArray() function");
+					var len = selection.length;
+					var result = [];
+					for (var i = 0; i < len; i++) {
+						result.push(selection[i])
 					}
-				})
+					return result;
+				}
 
+				function waypoints() {
+					console.log("I'm in the waypoints() function");
 
+					// select elements
+					var graphicEl = document.querySelector('.graphic');
+					var graphicVisEl = graphicEl.querySelector('.graphic__vis');
+					var triggerEls = selectionToArray(graphicEl.querySelectorAll('.trigger'));
 
+					// set viewport height
+					var viewportHeight = window.innerHeight;
+					var halfViewportHeight = Math.floor(viewportHeight / 2);
+
+					// a global function creates and handles all the vis + updates
+					var graphic = createGraphic('.graphic');
+
+					// handle the fixed/static position of the graphic
+					var toggle = function(fixed, bottom) {
+						if (fixed) {
+							graphicVisEl.classList.add('is-fixed');
+						}
+						else {
+							graphicVisEl.classList.remove('is-fixed');
+						}
+
+						if (bottom) {
+							graphicVisEl.classList.add('is-bottom');
+						}
+						else {
+							graphicVisEl.classList.remove('is-bottom');
+						}
+					}
+
+					// set up a waypoint trigger for each trigger element
+					var waypoints = triggerEls.map(function(el) {
+
+						// get the step, cast as a number
+						var step = +el.getAttribute('data-step');
+
+						return new Waypoint({
+							element: el, // our trigger element
+							handler: function(direction) {
+								// if the direction is down, then use that number, else we want to trigger the previous one
+								var nextStep = direction === 'down' ? step : Math.max(0, step - 1);
+
+								// tell the graphic to update with a specific step
+								graphic.update(nextStep);
+							},
+							offset: '50%', // trigger half way up the viewport
+						})
+					})
+
+					// enter (top) or exit (bottom) graphic (toggle fixed position)
+					var enterWaypoint = new Waypoint({
+						element: graphicEl,
+						handler: function(direction) {
+							var fixed = direction === 'down';
+							var bottom = false;
+							toggle(fixed, bottom);
+						},
+					})
+
+					var exitWaypoint = new Waypoint({
+						element: graphicEl,
+						handler: function(direction) {
+							var fixed = direction === 'up';
+							var bottom = !fixed;
+							toggle(fixed, bottom);
+						},
+						offset: 'bottom-in-view', // waypoints convenience instead of a calculation
+					})
+				}
+
+				waypoints();
 			});
 
 		</script>

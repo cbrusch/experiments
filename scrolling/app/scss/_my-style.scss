@@ -1,11 +1,19 @@
 body {
 	position: relative;
 }
-#container {
+
+.graphic__vis {
+	background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
+	background-size: cover;
 	border: 5px solid purple;
-/*	display: grid;*/
-/*	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
-/*	grid-template-rows: 1fr 1fr;*/
+	min-height: 50vh;
+}
+.trigger {
+	height: 30vh;
+}
+
+/*#container {
+	border: 5px solid purple;
 	height: 80vh;
 	width: 100vw;
 	overflow: scroll;
@@ -27,7 +35,7 @@ body {
 	border: 5px solid pink;
 }
 #story0-0 {
-	/*background-color: aqua;*/
+	background-color: aqua;
 }
 
 .is-fixed {
@@ -46,4 +54,4 @@ body {
 #belowContainer {
 	height: 1000vh;
 	position: relative;
-}
+}*/
