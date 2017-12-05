@@ -3,12 +3,14 @@
 	<head>
 		<link rel="stylesheet" href="css/app.css">
 	</head>
-	<body>
+	<body style="height: 1000vh">
 		<!-- http://imakewebthings.com/waypoints/guides/getting-started/ -->
-		<div id="basic-waypoint" style="height: 100px; width: 100px; margin-top: 300px; border: 5px solid purple;"></div>
+		<div id="my-offset-debug" style="border: 1px solid red; height: 1px; width: 100vw; position: fixed; top: 100px;"></div>
+		<div id="basic-waypoint" style="height: 100px; width: 100px; margin-top: 300px; border: 5px solid purple; position: absolute; top: 300px;"></div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="/js/waypoints/lib/noframework.waypoints.min.js"></script>
+		<script src="/js/waypoints/lib/waypoints.debug.js"></script> <!-- remove in production -->
 
 		<script>
 			$(function() {
@@ -19,7 +21,8 @@
 					element: document.getElementById('basic-waypoint'), // tells Waypoint which DOM element's position to observe on scroll
 					handler: function(direction) { // triggered when the top of the element hits the top of the viewport
 						console.log('Direction: ' + direction);
-					}
+					},
+					offset: 100, // moving the trigger location from 0 at the top of the viewport
 				})
 			});
 
