@@ -1,0 +1,48 @@
+body {
+	position: relative;
+}
+#container {
+	border: 5px solid purple;
+/*	display: grid;*/
+/*	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
+/*	grid-template-rows: 1fr 1fr;*/
+	height: 80vh;
+	width: 100vw;
+	overflow: scroll;
+	position: relative;
+	background-image: url(http://www.babylonlibrary.org/wp-content/uploads/bunnies.jpg);
+}
+.storyWrapper {
+	position: static;
+}
+.scrollStoryItem {
+	height: 100%;
+	position: relative;
+}
+.scrollStoryItem:nth-child(1) {
+	border: 5px solid orange;
+}
+.scrollStoryItem:nth-child(2) {
+	border: 5px solid pink;
+}
+#story0-0 {
+	/*background-color: aqua;*/
+}
+
+.is-fixed {
+	position: fixed !important;
+	top: 0px !important;
+}
+.is-also-fixed {
+	position: fixed !important;
+	top: calc(0px + 80vh + 10px) !important;
+}
+
+#aboveContainer {
+	height: 40vh;
+	position: relative;
+}
+#belowContainer {
+	height: 1000vh;
+	position: relative;
+}

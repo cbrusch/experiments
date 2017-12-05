@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-<!-- 		<link rel="stylesheet" href="css/app.css"> -->
+		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<div id="container">
-			<div class="story" style="height: 800px"><h2>Story 1</h2><p> ... </p></div>
-			<div class="story" style="height: 800px"><h2>Story 2</h2><p> ... </p></div>
+		<div id="aboveContainer">This is above the graphic</div>
+		<div class="storyWrapper">
+			<div id="container">
+				<div class="story"><h2>Story 1</h2><p> ... </p></div>
+				<div class="story"><h2>Story 2</h2><p> ... </p></div>
+			</div>
 		</div>
+		<div id="belowContainer">This is below the graphic</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="js/scrollstory/jquery.scrollstory.js"></script>
@@ -15,12 +19,31 @@
 		<script>
 			// instantiation
 			$(function() {
-				$("#container").scrollStory( {
+				$("#container").scrollStory({
+					debug: true,
+					keyboard: true,
+					scrollLeft: 500,
+					triggerOffset: 100,
 					containerscroll: function() {
 						console.log("I am scrolling");
+						console.log($("#story0-0"));
+
+						if( $('#container').hasClass('scrollStoryActive') ) {
+						console.log("the container is active");
+						$('#container').addClass('is-fixed');
+						$('#belowContainer').addClass('is-also-fixed');
+						}
+						// if( $('#story0-1').hasClass('active') ) {
+						// 	console.log("section 2 is active");
+						// 	$('#story0-1').addClass('is-fixed');
+						// }
 					}
 				})
+
+
+
 			});
+
 		</script>
 	</body>
 </html>
