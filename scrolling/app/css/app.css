@@ -30,6 +30,8 @@ p {
 .my-image {
   background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
   background-size: cover;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
   height: 100%;
   width: 100%;
   background-position: 50px 30px;
@@ -37,6 +39,21 @@ p {
   -webkit-transform: scale(2);
   -ms-transform: scale(2);
   transform: scale(2); }
+
+.my-image__remove-filter {
+  -webkit-filter: none;
+  filter: none;
+  -webkit-transition-property: -webkit-filter;
+  transition-property: -webkit-filter;
+  -o-transition-property: filter;
+  transition-property: filter;
+  transition-property: filter, -webkit-filter;
+  -webkit-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
 
 .graphic__vis {
   background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
@@ -47,8 +64,29 @@ p {
 .trigger {
   height: 30vh; }
 
-.my-test {
-  background-color: rgba(255, 0, 72, 0.2); }
+.my-test-in {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.my-test-out {
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: .3s;
+  -o-transition-duration: .3s;
+  transition-duration: .3s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
 
 /*#container {
 	border: 5px solid purple;

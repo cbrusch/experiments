@@ -30,11 +30,18 @@ p {
 .my-image {
 	background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
 	background-size: cover;
+	filter: blur(5px);
 	height: 100%;
 	width: 100%;
 	background-position: 50px 30px;
 	background-repeat: no-repeat;
 	transform: scale(2);
+}
+.my-image__remove-filter {
+	filter: none;
+	transition-property: filter;
+	transition-duration: .3s;
+	transition-timing-function: ease;
 }
 .graphic__vis {
 	background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
@@ -45,8 +52,17 @@ p {
 .trigger {
 	height: 30vh;
 }
-.my-test {
-	background-color: hsla(343, 100, 50, .2);
+.my-test-in {
+	background-color: hsla(360, 100, 0, .5);
+	transition-property: background-color;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+}
+.my-test-out {
+	background-color: hsla(360, 100, 100, .5);
+	transition-property: background-color;
+	transition-duration: .3s;
+	transition-timing-function: ease;
 }
 
 /*#container {
