@@ -1,13 +1,31 @@
 body {
+	background-color: hsla(343, 100, 50, .2);
+	margin: 0;
+	padding: 0;
 	position: relative;
+	min-height: 1000vh;
 }
-
+p {
+	margin: 0;
+}
 .stuck {
 	position: fixed;
 	top: 0;
 }
+.basic-waypoint-bkg {
+	background-color: hsla(360, 100, 100, .5);
+}
 .basic-sticky-waypoint {
 	overflow: hidden;
+}
+.graphic__prose p:nth-child(1) {
+	background-color: hsla(343, 100, 50, 0.5);
+}
+.graphic__prose p:nth-child(2) {
+	background-color: hsla(343, 100, 50, 0.7);
+}
+.graphic__prose p:nth-child(3) {
+	background-color: hsla(343, 100, 50, 0.9);
 }
 .my-image {
 	background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
@@ -18,15 +36,17 @@ body {
 	background-repeat: no-repeat;
 	transform: scale(2);
 }
-
 .graphic__vis {
 	background-image: url(https://source.superherostuff.com/wp-content/uploads/2017/05/0-cover-1.jpg);
 	background-size: cover;
-	border: 5px solid purple;
+	background-color: hsla(343, 100, 50, 0.3);
 	min-height: 50vh;
 }
 .trigger {
 	height: 30vh;
+}
+.my-test {
+	background-color: hsla(343, 100, 50, .2);
 }
 
 /*#container {
