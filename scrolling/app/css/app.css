@@ -1,8 +1,11 @@
 body {
   position: relative; }
 
+h2 {
+  margin: 0; }
+
 #container {
-  border: 5px solid purple;
+  background-color: rgba(230, 179, 179, 0.8);
   /*	display: grid;*/
   /*	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
   /*	grid-template-rows: 1fr 1fr;*/
@@ -21,10 +24,10 @@ body {
   position: relative; }
 
 .scrollStoryItem:nth-child(1) {
-  border: 5px solid orange; }
+  background-color: rgba(230, 204, 179, 0.8); }
 
 .scrollStoryItem:nth-child(2) {
-  border: 5px solid pink; }
+  background-color: rgba(204, 230, 179, 0.8); }
 
 #story0-0 {
   /*background-color: aqua;*/ }
