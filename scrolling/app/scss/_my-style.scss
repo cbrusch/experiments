@@ -33,14 +33,44 @@ p {
 	filter: blur(5px);
 	height: 100%;
 	width: 100%;
-	background-position: 50px 30px;
-	background-repeat: no-repeat;
-	transform: scale(2);
 }
 .my-image__remove-filter {
 	filter: none;
 	transition-property: filter;
 	transition-duration: .3s;
+	transition-timing-function: ease;
+}
+.my-image__animation--1 {
+	background-position: 50px 30px;
+	background-repeat: no-repeat;
+	transform: scale(2);
+	transition-property: background-position, transform;
+	transition-delay: .5s;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+}
+.my-image__animation--2 {
+	background-position: -350px 170px;
+	background-repeat: no-repeat;
+	transform: scale(2.2);
+	transition-property: background-position, transform;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+}
+.my-image__animation--3 {
+	background-position: -200px -100px;
+	background-repeat: no-repeat;
+	transform: scale(1.5);
+	transition-property: background-position, transform;
+	transition-duration: 1s;
+	transition-timing-function: ease;
+}
+.my-image__animation--reset {
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	transform: scale(1);
+	transition-property: background-position, transform;
+	transition-duration: 1s;
 	transition-timing-function: ease;
 }
 .graphic__vis {

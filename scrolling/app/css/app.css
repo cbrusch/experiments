@@ -33,12 +33,7 @@ p {
   -webkit-filter: blur(5px);
   filter: blur(5px);
   height: 100%;
-  width: 100%;
-  background-position: 50px 30px;
-  background-repeat: no-repeat;
-  -webkit-transform: scale(2);
-  -ms-transform: scale(2);
-  transform: scale(2); }
+  width: 100%; }
 
 .my-image__remove-filter {
   -webkit-filter: none;
@@ -51,6 +46,81 @@ p {
   -webkit-transition-duration: .3s;
   -o-transition-duration: .3s;
   transition-duration: .3s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.my-image__animation--1 {
+  background-position: 50px 30px;
+  background-repeat: no-repeat;
+  -webkit-transform: scale(2);
+  -ms-transform: scale(2);
+  transform: scale(2);
+  -webkit-transition-property: background-position, -webkit-transform;
+  transition-property: background-position, -webkit-transform;
+  -o-transition-property: background-position, transform;
+  transition-property: background-position, transform;
+  transition-property: background-position, transform, -webkit-transform;
+  -webkit-transition-delay: .5s;
+  -o-transition-delay: .5s;
+  transition-delay: .5s;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.my-image__animation--2 {
+  background-position: -350px 170px;
+  background-repeat: no-repeat;
+  -webkit-transform: scale(2.2);
+  -ms-transform: scale(2.2);
+  transform: scale(2.2);
+  -webkit-transition-property: background-position, -webkit-transform;
+  transition-property: background-position, -webkit-transform;
+  -o-transition-property: background-position, transform;
+  transition-property: background-position, transform;
+  transition-property: background-position, transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.my-image__animation--3 {
+  background-position: -200px -100px;
+  background-repeat: no-repeat;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-transition-property: background-position, -webkit-transform;
+  transition-property: background-position, -webkit-transform;
+  -o-transition-property: background-position, transform;
+  transition-property: background-position, transform;
+  transition-property: background-position, transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease; }
+
+.my-image__animation--reset {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition-property: background-position, -webkit-transform;
+  transition-property: background-position, -webkit-transform;
+  -o-transition-property: background-position, transform;
+  transition-property: background-position, transform;
+  transition-property: background-position, transform, -webkit-transform;
+  -webkit-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
   -webkit-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   transition-timing-function: ease; }
