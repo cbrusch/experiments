@@ -1,0 +1,6 @@
+/* bootstrap.css lines 3928 - 3934 */
+.tab-content > .tab-pane {
+  display: none; }
+
+.tab-content > .active {
+  display: block; }

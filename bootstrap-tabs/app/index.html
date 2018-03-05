@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Bootstrap.js tab manager experiment</title>
+		<link rel="stylesheet" href="css/app.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<nav>
+			<ul class="nav nav-tabs" role="tablist">
+				<li id="myTabby" class="nav-item"><a class="nav-link" href="#tab1">Tab 1</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab2">Tab 2</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab3">Tab 3</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab4">Tab 4</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab5">Tab 5</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tab6">Tab 6</a></li>
+			</ul>
+		</nav>
+
+		<div class="tab-content">
+			<div class="tab-pane fade" id="tab1" role="tabpanel">Content for Tab 1</div>
+			<div class="tab-pane fade" id="tab2" role="tabpanel">Content for Tab 2</div>
+			<div class="tab-pane fade" id="tab3" role="tabpanel">Content for Tab 3</div>
+			<div class="tab-pane fade" id="tab4" role="tabpanel">Content for Tab 4</div>
+			<div class="tab-pane fade" id="tab5" role="tabpanel">Content for Tab 5</div>
+			<div class="tab-pane fade" id="tab6" role="tabpanel">Content for Tab 6</div>
+		</div>
+
+
+		<script>
+			$(function() {
+
+				$('.nav-tabs a').click(function (e) {
+					e.preventDefault()
+					$(this).tab('show')
+					console.log("I am showing tab " + this)
+				})
+			});
+
+		</script>
+	</body>
+</html>
