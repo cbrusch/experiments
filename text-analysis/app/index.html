@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="css/app.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/p5/p5.js"></script>
+		<script src="js/p5/addons/p5.dom.js"></script>
+		<script src="js/RiTa/js/rita-full.js"></script>
+	</head>
+	<body>
+
+
+		<script>
+
+			$(function() {
+				var myString = "An engraving of a farmer walking across a pastoral field while sprinkling seeds from the seeder bowl he carries. The seeds that fill the bowl look like coins, but the seeds that land in the field look like notes on a music staff.";
+				var ritaString = new RiString(myString);
+
+				ritaString.pos();
+
+
+
+			});
+
+		</script>
+	</body>
+</html>
