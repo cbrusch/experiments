@@ -26,3 +26,7 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.generated-text {
+	border-bottom: 5px solid orange;
+}

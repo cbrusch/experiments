@@ -4,7 +4,7 @@ import React from 'react';
 const Brief = ({brief}) => (
     <article>
         <h1>Your Design Brief</h1>
-        <p>Design a website for {brief.businessName}, a {brief.businessType} in {brief.city}.</p>
+        <p>Design a website for <span class="generated-text">{brief.businessName}</span>, a {brief.businessType} in {brief.city}.</p>
         <p>They want a website that is {brief.adjectives[0]}, {brief.adjectives[1]}, and {brief.adjectives[2]} and will appeal to {brief.audience}.</p>
     </article>
 )

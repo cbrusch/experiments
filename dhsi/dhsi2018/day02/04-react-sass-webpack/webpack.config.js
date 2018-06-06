@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
 
+//webpack is configured by an object (json)
 var webpackConfig = {
   mode: isProd ? 'production' : 'development',
   devtool: isProd
@@ -12,21 +13,21 @@ var webpackConfig = {
     : 'cheap-module-source-map',
   entry: {
     js: [
-      'index'
+      'index'//main file for project, index.js
     ]
   }
   , output: {
     path: path.resolve('./build/')
-    , filename: 'bundle.js'
+    , filename: 'bundle.js'//upon build, renames index.js to bundle.js
   }
   , module: {
     rules: [
       {
-        test: /\.(jsx|js)$/
-        , exclude: /(node_modules|bower_components)/
+        test: /\.(jsx|js)$/ //this regex searches for .jsx or .js
+        , exclude: /(node_modules|bower_components)/ //this regex ignores node_modules, bower_components
         , use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader' //this transpiles es2015 etc.
             , options: {
               cacheDirectory: true
             }
@@ -136,7 +137,7 @@ var webpackConfig = {
           ]
         }
       }
-    }) 
+    })
   ]
   , resolve: {
     extensions: [
