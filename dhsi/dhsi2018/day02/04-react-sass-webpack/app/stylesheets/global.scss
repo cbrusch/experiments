@@ -1,0 +1,21 @@
+@import "normalize-scss";
+@import "variables";
+@import "mixins";
+@include normalize();
+
+html {
+	@include background-gradient--sunburst-top-right;
+	// background-color: $backgroundColor;
+	font-family: $base-font;
+}
+body {
+	min-height: 100vh;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $header-font;
+}

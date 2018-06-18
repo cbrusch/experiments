@@ -1,0 +1,43 @@
+@mixin background-pattern--weave {
+	background: linear-gradient(135deg, #708090 22px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px),
+	linear-gradient(225deg, #708090 22px, #d9ecff 22px, #d9ecff 24px, transparent 24px, transparent 67px, #d9ecff 67px, #d9ecff 69px, transparent 69px)0 64px;
+	background-color:#708090;
+	background-size: 64px 128px;
+}
+
+@mixin background-pattern--cross {
+	background:
+		radial-gradient(circle, transparent 20%, #DEBAA3 20%, #DEBAA3 80%, transparent 80%, transparent),
+		radial-gradient(circle, transparent 20%, #DEBAA3 20%, #DEBAA3 80%, transparent 80%, transparent) 50px 50px,
+		linear-gradient(#409554 8px, transparent 8px) 0 -4px,
+		linear-gradient(90deg, #409554 8px, transparent 8px) -4px 0;
+	background-color: #DEBAA3;
+	background-size:100px 100px, 100px 100px, 50px 50px, 50px 50px;
+}
+
+@mixin background-pattern--wave {
+	background:
+		linear-gradient(#ffffff 50%, rgba(255,255,255,0) 0) 0 0,
+		radial-gradient(circle closest-side, #FFFFFF 53%, rgba(255,255,255,0) 0) 0 0,
+		radial-gradient(circle closest-side, #FFFFFF 50%, rgba(255,255,255,0) 0) 55px 0 #7CEBC6;
+	background-size:110px 200px;
+	background-repeat:repeat-x;
+}
+
+@mixin background-gradient--sunburst-left {
+	background: #FDC830;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin background-gradient--sunburst-top-right {
+	background-image: #FDC830;  /* fallback for old browsers */
+	background-image: -webkit-linear-gradient(to top right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+	background-image: linear-gradient(to top right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+@mixin background-gradient--sunburst-top {
+	background-image: #FDC830;  /* fallback for old browsers */
+	background-image: -webkit-linear-gradient(#F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
+	background-image: linear-gradient(#F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
