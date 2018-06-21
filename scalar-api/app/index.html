@@ -3,14 +3,49 @@
 	<head>
 		<link rel="stylesheet" href="css/app.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="js/sketch.js"></script>
+		<script type="text/javascript" src="http://scalar.usc.edu/works/system/application/views/widgets/api/scalarapi.js"></script>
 	</head>
 	<body>
-
-
+	<nav></nav>
+	<div class="hero">
+		<img src="" alt=""/>
+	</div>
+	<article>
+		<p class="title"></p>
+		<p class="quote"></p>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</article>
+	<div class="simulation-list"></div>
+	<div class="chapter-list"></div>
 		<script>
 			$(function() {
+				// scalarapi.setBook( "http://scalar.usc.edu/works/guide" );
+				scalarapi.setBook( "http://scalar.usc.edu/works/italian-shadows/chapter-one-some-title-here-10" );
 
+				if ( scalarapi.loadNode( "chapter-one-some-title-here-10", true, handleSuccess, handleFailure, 3 ) == "loaded" ) {
+					handleSuccess();
+				};    
+				  			
+				function handleSuccess() {
+					var node = scalarapi.getNode( "chapter-one-some-title-here-10" );
+					$( "article" ).append( "<h1 class='title'>" + node.getDisplayTitle() + "</h1>" ); // get and display title
+					console.log( node );
+					console.log( node.getRelatedNodes );
+					var pathContents = node.getRelatedNodes( "path", "outgoing" );
+					$( "body" ).append( "<p>It is a path containing " + pathContents.length + " items.</p>" );
+				}   	 
+				   		
+				function handleFailure() {
+					$( "body" ).append( "<p>The node could not be loaded.</p>" );
+				}		    
 
 			});
 		</script>
