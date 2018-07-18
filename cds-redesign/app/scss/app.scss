@@ -153,7 +153,58 @@ nav.cds-nav {
   }
 }
 .wrapper--calendar {
-
+	.calendar__details {
+		outline: 2px solid orange;
+	}
+	.calendar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		padding-bottom: 2rem;
+	}
+	.calendar__event {	
+		background-color: #fff;
+		display: grid;
+		grid-gap: 10px;
+		grid-template-columns: 1fr 2fr;
+		grid-template-rows: 1fr 4fr;
+		flex-basis: 40%;
+		height: 10rem;
+		margin: 2rem;
+		outline: 6px solid $accent-dull;
+	}
+	.event__type {
+		background-color: $accent-dull;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		grid-area: 1 / 1 / 2 / 3;
+	}
+	.calendar__event[data-event-type='workshop'], .calendar__event[data-event-type='talk'] {
+		outline: 6px solid $accent-dull;
+		.event__type {
+			background-color: $accent-dull;
+		}
+	}
+	.calendar__event[data-event-type='department'] {
+		outline: 6px solid $neutral-cool;
+		.event__type {
+			background-color: $neutral-cool;
+		}
+	}
+	.event__calendar-date {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: start;
+	}
+	.event__details {
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: start;
+	}
 }
 .wrapper--projects {
 	background-color: $bkg-dark;
