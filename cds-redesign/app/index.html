@@ -1,40 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<meta content="text/html" charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CDS Redesign</title>
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body>
-		<div class="projects-wrapper">
-			<div class="projects-header">
-				<span class="branding__line"></span>
-				<span class="branding__dot"></span>
-				<h2>Sample Projects</h2>
-				<span class="branding__dot"></span>
-				<span class="branding__line"></span>
+		<div class="header">
+		  <h1 class="logo">Center for Cool Things</h1>
+		  <nav class="cds-nav">
+		    <ul class="row row--cds-nav">
+		      <li><a class="selected" href="#">Home</a></li>
+		      <li><a href="#">Activities</a></li>
+		      <li><a href="#">Projects</a></li>
+		      <li><a href="#">Workshops</a></li>
+		      <li><a href="#">People</a></li>
+		      <li><a href="#">About</a></li>
+		      <li><a href="#">Blog</a></li>
+		    </ul>
+		  </nav>
+		</div>
+		<div class="wrapper wrapper--subjects">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in fugiat nulla pariatur.</p>
+		  <ul class="row row--subjects">
+		    <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">Data Management</a></span>
+				</li>
+		    <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">Data Visualization</a></span>
+				</li>
+		     <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">GIS &amp; Mapping</a></span>
+				</li>
+		     <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">Textual &amp; Quantitative Analysis</a></span>
+				</li>
+		     <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">Open Access &amp; Scholarly Communications</a></span>
+				</li>
+		    <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">Digital Research Project Consulting</a></span>
+				</li>
+		     <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">Accessibility &amp; Usability</a></span>
+				</li>
+		     <li class="subject-area">
+		      <span class="btn--ghost"></span>
+		      <span class="btn"><a href="#">2D &amp; 3D Digitization</a></span>
+				</li>
+		  </ul>
+		</div>
+		<div class="wrapper wrapper--calendar">
+		  <div class="heading">
+		    <span class="branding__line"></span>
+			  <span class="branding__dot"></span>
+			  <h2>Happening This Week</h2>
+			  <span class="branding__dot"></span>
+			  <span class="branding__line"></span>
+		  </div>
+		</div>
+		<div class="wrapper wrapper--projects">
+		  <div class="heading">
+			  <span class="branding__line"></span>
+			  <span class="branding__dot"></span>
+			  <h2>Sample Projects</h2>
+			  <span class="branding__dot"></span>
+			  <span class="branding__line"></span>
 			</div>
-			<ul class="projects-row">
+			<ul class="row row--projects">
 				<li class="project">
-					<span class="project__thumbnail"></span>
+		      		<span class="project__thumbnail" aria-label="Thumbnail"><img aria-hidden=true src="https://news.artnet.com/app/news-upload/2016/03/giant-rubber-duck-1024x681.jpg" /></span>
 					<span class="project__bkg"></span>
-					<span class="project__title">1968: The Whole World Was Watching Website</span>
+					<span class="project__title">This is Project 1</span>
 					<span class="project__btn__outline"></span>
-					<btn class="project__btn">View Project</btn>
+		      		<span class="project__btn"><a href="#">View Project</a></span>
 				</li>
 				<li class="project">
-					<span class="project__thumbnail"></span>
+		      		<span class="project__thumbnail" aria-label="Thumbnail"><img aria-hidden=true src="https://news.artnet.com/app/news-upload/2016/03/giant-rubber-duck-1024x681.jpg" /></span>
 					<span class="project__bkg"></span>
-					<span class="project__title">Clyde Davenport</span>
+					<span class="project__title">This is Project 2</span>
 					<span class="project__btn__outline"></span>
-					<btn class="project__btn">View Project</btn>
+		      		<span class="project__btn"><a href="#">View Project</a></span>
 				</li>				
 				<li class="project">
 					<span class="project__thumbnail"></span>
-					<span class="project__bkg"></span>
-					<span class="project__title">Latin American Travelogues</span>
+		      		<span class="project__thumbnail" aria-label="Thumbnail"><img aria-hidden=true src="https://news.artnet.com/app/news-upload/2016/03/giant-rubber-duck-1024x681.jpg" /></span>
+					<span class="project__title">This is a Very Very Very Very Very Very Very Very Very Very Very Very Very Very Very Long Title for Project 3</span>
 					<span class="project__btn__outline"></span>
-					<btn class="project__btn">View Project</btn>
+		      		<span class="project__btn"><a href="#">View Project</a></span>
 				</li>
 			</ul>
+		</div>
+		<div class="wrapper wrapper--contact">
+		  <div class="heading">
+		    <span class="branding__line"></span>
+			  <span class="branding__dot"></span>
+			  <h2>Get in Contact</h2>
+			  <span class="branding__dot"></span>
+			  <span class="branding__line"></span>
+		  </div>
 		</div>
 	</body>
 </html>
